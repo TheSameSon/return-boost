@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name strategiesAppApp.controller:AboutCtrl
+ * @name returnBoostApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the strategiesAppApp
+ * Controller of the returnBoostApp
  */
-angular.module('strategiesAppApp')
+angular.module('returnBoostApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

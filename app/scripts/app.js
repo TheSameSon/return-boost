@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name strategiesAppApp
+ * @name returnBoostApp
  * @description
- * # strategiesAppApp
+ * # returnBoostApp
  *
  * Main module of the application.
  */
 angular
-  .module('strategiesAppApp', [
+  .module('returnBoostApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
