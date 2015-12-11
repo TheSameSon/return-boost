@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="bower_components/normalize.css/normalize.css" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/perfect-scrollbar/src/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css" />
-    <link rel="stylesheet" href="bower_components/checkbo/src/0.1.4/css/checkBo.min.css" />
     <link rel="stylesheet" href="bower_components/intl-tel-input/build/css/intlTelInput.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" />
@@ -35,21 +33,47 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="returnBoostApp" class="return-boost-app">
+  <body ng-app="returnBoostApp">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!-- Add your site or application content here -->
     <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
 
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#/">returnBoost</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#/">Home</a></li>
+              <li><a ng-href="#/about">About</a></li>
+              <li><a ng-href="#/">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container">
-      <div ng-view=""></div>
+    <div ng-view=""></div>
     </div>
 
     <div class="footer">
-
+      <div class="container">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
     </div>
 
 
@@ -77,14 +101,10 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/perfect-scrollbar/src/perfect-scrollbar.js"></script>
     <script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
-    <script src="bower_components/d3/d3.js"></script>
-    <script src="bower_components/nvd3/build/nv.d3.js"></script>
-    <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
     <script src="bower_components/fastclick/lib/fastclick.js"></script>
     <script src="bower_components/jquery-countTo/jquery.countTo.js"></script>
     <script src="bower_components/onScreen/jquery.onscreen.js"></script>
     <script src="bower_components/jquery.maskedinput/dist/jquery.maskedinput.js"></script>
-    <script src="bower_components/checkbo/src/0.1.4/js/checkBo.min.js"></script>
     <script src="bower_components/intl-tel-input/build/js/intlTelInput.min.js"></script>
     <script src="bower_components/intl-tel-input/lib/libphonenumber/build/utils.js"></script>
     <script src="bower_components/moment/moment.js"></script>
@@ -99,10 +119,10 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/find-strategies.js"></script>
-    <script src="scripts/controllers/compare-strategies.js"></script>
-    <!-- endbuild -->
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <!-- endbuild -->
 </body>
 </html>
