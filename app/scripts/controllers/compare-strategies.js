@@ -40,7 +40,7 @@ angular.module('returnBoostApp')
     };
 
 
-  // Line chart
+  // PERFORMANCE (LINE)
   function sinAndCos() {
     var sin = [],
       sin2 = [],
@@ -88,18 +88,53 @@ $http({
   var data = [];
   var years = {};
   angular.forEach(response.data, function(values, i) {
-    if (i%10 > 0) {
-      return;
-    }
+
     var date = new Date(values[0]);
 
     if (angular.isUndefined(years[date.getFullYear()]) && date.getMonth() < 6) {
       years[date.getFullYear()] = values[0];
+      data.push({x: values[0], y: values[1]});
+    } else {
+      if (i%10 > 0) {
+        return;
+      }
+
+      data.push({x: values[0], y: values[1]});
     }
 
-    data.push({x: values[0], y: values[1]});
   })
 
+
+  // RISK CHART (MULTIBAR)
+
+// Inspired by Lee Byron's test data generator.
+function bumpLayer(n, o) {
+
+  function bump(a) {
+    var x = 1 / (.1 + Math.random()),
+        y = 2 * Math.random() - .5,
+        z = 10 / (.1 + Math.random());
+    for (var i = 0; i < n; i++) {
+      var w = (i / n - y) * z;
+      a[i] += x * Math.exp(-w * w);
+    }
+  }
+
+  var a = [], i;
+  for (i = 0; i < n; ++i) a[i] = o + o * Math.random();
+  for (i = 0; i < 5; ++i) bump(a);
+  return a.map(function(d, i) { return {x: i, y: Math.max(0, d)}; });
+}
+
+  var n = 2, // number of layers
+      m = 1, // number of samples per layer
+      stack = d3.layout.stack(),
+      layers = stack(d3.range(n).map(function() { return bumpLayer(m, .1); })),
+      yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); }),
+      yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
+console.log(layers, data)
+
+    // VIEW
     $scope.charts = {
       performance: {
         data: [{
@@ -113,7 +148,7 @@ $http({
                 height: 350,
                 margin : {
                     top: 0,
-                    right: 0,
+                    right: 20,
                     bottom: 40,
                     left: 0
                 },
@@ -149,38 +184,34 @@ $http({
       },
 
       risk: {
-
+        data: [{
+          key: 'somekey',
+          values: layers[0],
+          color: '#000'
+        },
+        {
+          key: 'somekey 2',
+          values: layers[1],
+          color: '#aaa'
+        }],
+        options: {
+          chart: {
+            type: 'multiBarChart',
+            height: 350,
+            margin: {
+              top: 0,
+              right: 20,
+              bottom: 40,
+              left: 0
+            },
+            x: function(d){ return d.x; },
+            y: function(d){ return d.y; },
+            useInteractiveGuideline: true
+          }
+        }
       }
     }
 
-// Inspired by Lee Byron's test data generator.
-function bumpLayer(n, o) {
-
-  function bump(a) {
-    var x = 1 / (.1 + Math.random()),
-        y = 2 * Math.random() - .5,
-        z = 10 / (.1 + Math.random());
-    for (var i = 0; i < n; i++) {
-      var w = (i / n - y) * z;
-      a[i] += x * Math.exp(-w * w);
-    }
-  }
-
-  var a = [], i;
-  for (i = 0; i < n; ++i) a[i] = o + o * Math.random();
-  for (i = 0; i < 5; ++i) bump(a);
-  return a.map(function(d, i) { return {x: i, y: Math.max(0, d)}; });
-}
-
-  var n = 4, // number of layers
-      m = 58, // number of samples per layer
-      stack = d3.layout.stack(),
-      layers = stack(d3.range(n).map(function() { return bumpLayer(m, .1); })),
-      yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); }),
-      yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
-
-
-    console.log(layers);
 });
 
 $scope.charts = {};
