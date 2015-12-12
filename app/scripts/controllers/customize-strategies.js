@@ -8,8 +8,7 @@
  * Controller of the returnBoostApp
  */
 angular.module('returnBoostApp')
-  .controller('FindStrategiesCtrl', ['$scope', function ($scope) {
-
+  .controller('CustomizeStrategiesCtrl', ['$scope', function ($scope) {
     $scope.strategies = [
       {
         name: 'Stocks'
@@ -25,6 +24,18 @@ angular.module('returnBoostApp')
       }
     ];
 
+    $scope.strategy = {
+      name: 'Strategy 1'
+    }
+/*
+    $('#investments').mask('999999', {
+         radixPoint:".",
+         groupSeparator: ",",
+         digits: 2,
+         autoGroup: true,
+         prefix: '$'
+    })*/
+
     // TODO: create service
     $scope.selected = [];
 
@@ -36,6 +47,8 @@ angular.module('returnBoostApp')
       } else {
         $scope.selected.push(strategy);
       }
+
+      console.log($scope.selected);
     };
 
   }]);

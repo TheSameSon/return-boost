@@ -8,8 +8,8 @@
  * Controller of the returnBoostApp
  */
 angular.module('returnBoostApp')
-  .controller('CompareStrategiesCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.strategies = [
+  .controller('FollowStrategiesCtrl', ['$scope', '$http', function ($scope, $http) {
+   $scope.strategies = [
       {
         name: 'Stocks'
       },
@@ -36,6 +36,7 @@ angular.module('returnBoostApp')
         $scope.selected.push(strategy);
       }
 
+      console.log($scope.selected);
     };
 
 
@@ -131,6 +132,7 @@ function bumpLayer(n, o) {
       layers = stack(d3.range(n).map(function() { return bumpLayer(m, .1); })),
       yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); }),
       yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
+console.log(layers, data)
 
     // VIEW
     $scope.charts = {

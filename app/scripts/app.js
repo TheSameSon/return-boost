@@ -14,11 +14,49 @@ angular
     'ngCookies',
     'ngResource',
     'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch',
+    'ui.utils.masks',
     'nvd3'
   ])
-  .config(function ($routeProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+      .state('home', {
+        url: '/',
+        controller: 'HomeCtrl',
+        controllerAs: 'home',
+        templateUrl: 'views/home.html'
+      })
+      .state('strategies-find', {
+        url: '/find-strategies',
+        controller: 'FindStrategiesCtrl',
+        controllerAs: 'findStrategies',
+        templateUrl: 'views/find-strategies.html'
+      })
+      .state('strategies-compare', {
+        url: '/compare-strategies',
+        controller: 'CompareStrategiesCtrl',
+        controllerAs: 'compareStrategies',
+        templateUrl: 'views/compare-strategies.html'
+      })
+      .state('strategies-customize', {
+        url: '/customize-strategies',
+        controller: 'CustomizeStrategiesCtrl',
+        controllerAs: 'customizeStrategies',
+        templateUrl: 'views/customize-strategies.html'
+      })
+      .state('strategies-follow', {
+        url: '/follow-strategy',
+        controller: 'FollowStrategiesCtrl',
+        controllerAs: 'followStrategies',
+        templateUrl: 'views/follow-strategies.html'
+      })
+  }]);
+
+/*  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -27,15 +65,25 @@ angular
       })
       .when('/find-strategies', {
         templateUrl: 'views/find-strategies.html',
-        controller: 'FindStrategiestCtrl',
+        controller: 'FindStrategiesCtrl',
         controllerAs: 'findStrategies'
       })
       .when('/compare-strategies', {
         templateUrl: 'views/compare-strategies.html',
-        controller: 'CompareStrategiestCtrl',
+        controller: 'CompareStrategiesCtrl',
         controllerAs: 'compareStrategies'
       })
+      .when('/customize-strategies', {
+        templateUrl: 'views/customize-strategies.html',
+        controller: 'CustomizeStrategiesCtrl',
+        controllerAs: 'customizeStrategies'
+      })
+      .when('/follow-strategies', {
+        templateUrl: 'views/follow-strategies.html',
+        controller: 'FollowStrategiesCtrl',
+        controllerAs: 'followStrategies'
+      })
       .otherwise({
-        redirectTo: '/compare-strategies'
+        redirectTo: '/follow-strategies'
       });
-  });
+  });*/

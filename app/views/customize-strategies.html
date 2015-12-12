@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-lg-1 hidden-md"></div>
+  <div class="col-lg-10 col-md-12">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="data-row clearfix">
+          <div class="col-lg-12">You have chosen <span ng-bind="strategy.name"></span></div>
+        </div>
+        <div class="data-row clearfix">
+          <div class="col-lg-6">You selected the following asset classes:</div>
+          <div class="col-lg-6"></div>
+        </div>
+        <div class="data-row clearfix form-group">
+          <div class="col-lg-6"><label for="investments">How much do you want to invest?</label></div>
+          <div class="col-lg-6"><input class="form-control" id="investments" type="text" placeholder="$ 00,000" ui-money-mask="0" ng-model="investments"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-1 hidden-md"></div>
+</div>

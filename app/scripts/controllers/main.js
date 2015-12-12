@@ -1,17 +1,12 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name returnBoostApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the returnBoostApp
- */
 angular.module('returnBoostApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['$scope', function ($scope){
+/*    $timeout(function() {
+      navigation.goStep(1);
+    }, 2000)
+
+    $timeout(function() {
+      navigation.goStep(0);
+    }, 4000)*/
+  }]);
