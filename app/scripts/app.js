@@ -34,7 +34,16 @@ angular
         url: '/find-strategies',
         controller: 'FindStrategiesCtrl',
         controllerAs: 'findStrategies',
-        templateUrl: 'views/find-strategies.html'
+        templateUrl: 'views/find-strategies.html',
+        resolve: {
+          strategiesResolve: ['Strategy', function (Strategy) {
+            return Strategy.query().$promise;
+          }],
+          assetClassesResolve: ['AssetClass', function (AssetClass) {
+            console.log('assetClassesResolve')
+            return AssetClass.query().$promise;
+          }]
+        }
       })
       .state('strategies-compare', {
         url: '/compare-strategies',

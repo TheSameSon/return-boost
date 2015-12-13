@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('returnBoostApp')
-  .factory('navigation', ['$state', '$rootScope', '$stateParams', function($state, $rootScope, $stateParams){
+  .factory('navigation', ['$state', '$rootScope', '$stateParams', '$timeout', function($state, $rootScope, $stateParams, $timeout){
     var navigation = {};
 
     var _steps = [{
@@ -35,6 +35,8 @@ angular.module('returnBoostApp')
       off(); // unbind callback
     })
 
+    navigation.stepsEnabled = [0];
+
     navigation.getSteps = function () {
       return _steps;
     }
@@ -50,9 +52,11 @@ angular.module('returnBoostApp')
 
       $state.go(_steps[index].state);
 
-      _current = index;
+      $timeout(function () {
+        _current = index;
 
-      $rootScope.$broadcast('step:changed', _current, old);
+        $rootScope.$broadcast('step:changed', _current, old);
+      }, 0);
     };
 
     return navigation;

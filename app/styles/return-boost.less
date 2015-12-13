@@ -1,0 +1,56 @@
+@import "theme/less/urban";
+
+header {
+  height: 50px;
+}
+
+.asset-classes-wrap a {
+  display: block;
+}
+.nav-steps-list {
+  display: table;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  table-layout: fixed;
+  width: 100%;
+}
+.nav-step {
+  display: table-cell;
+  text-align: center;
+  line-height: 3em;
+}
+.step-num {
+  display: inline-block;
+}
+.step-name {
+  display: block;
+}
+.nav-step .step-num {
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+  border-radius: 50px;
+  background: #FFF;
+  transition: all .3s ease;
+}
+.nav-step.active .step-num {
+  transition: all .3s ease;
+}
+.step-name {
+  opacity: 0;
+  transition: all .6s ease;
+}
+.nav-step.active .step-name {
+  opacity: 1;
+}
+.step-nav-container {
+  position: relative;
+}
+.nav-progress {
+  margin: 23px 12.5% 0 12.5%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  width: 72%;
+}

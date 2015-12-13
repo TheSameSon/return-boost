@@ -49,6 +49,10 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
+      less: {
+        files: ['<%= config.app %>/styles/**/*.less'],
+        tasks: ['less']
+      },
       styles: {
         files: ['<%= config.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'postcss']
@@ -168,15 +172,29 @@ module.exports = function (grunt) {
         options: {
           strictMath: true
         },
-        src: '<%= config.app %>/styles/less/urban.less',
-        dest: '.tmp/styles/urban.css'
+        src: '<%= config.app %>/styles/theme/less/urban.less',
+        dest: '.tmp/styles/theme/urban.css'
       },
       compileSkin: {
         options: {
           strictMath: true
         },
-        src: '<%= config.app %>/styles/less/urban.skins.less',
-        dest: '.tmp/styles/urban.skins.css'
+        src: '<%= config.app %>/styles/theme/less/urban.skins.less',
+        dest: '.tmp/styles/theme/urban.skins.css'
+      },
+      compileAppCore: {
+        options: {
+          strictMath: true
+        },
+        src: '<%= config.app %>/styles/return-boost.less',
+        dest: '.tmp/styles/return-boost.css'
+      },
+      compileAppSkin: {
+        options: {
+          strictMath: true
+        },
+        src: '<%= config.app %>/styles/return-boost.skin.less',
+        dest: '.tmp/styles/return-boost.skin.css'
       }
     },
 
@@ -436,7 +454,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileSkin']);
+  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileSkin', 'less:compileAppCore', 'less:compileAppSkin']);
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {

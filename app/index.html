@@ -25,14 +25,16 @@
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/roboto.css">
-    <link rel="stylesheet" href="styles/font-awesome.css">
-    <link rel="stylesheet" href="styles/panel.css">
-    <link rel="stylesheet" href="styles/feather.css">
-    <link rel="stylesheet" href="styles/animate.css">
-    <link rel="stylesheet" href="styles/urban.css">
-    <link rel="stylesheet" href="styles/urban.skins.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/theme/roboto.css">
+    <link rel="stylesheet" href="styles/theme/font-awesome.css">
+    <link rel="stylesheet" href="styles/theme/panel.css">
+    <link rel="stylesheet" href="styles/theme/feather.css">
+    <link rel="stylesheet" href="styles/theme/animate.css">
+    <link rel="stylesheet" href="styles/theme/urban.css">
+    <link rel="stylesheet" href="styles/theme/urban.skins.css">
+
+    <link rel="stylesheet" href="styles/return-boost.css">
+    <link rel="stylesheet" href="styles/return-boost.skin.css">
     <!-- endbuild -->
   </head>
   <body ng-app="returnBoostApp" class="return-boost-app">
@@ -41,24 +43,20 @@
     <![endif]-->
     <div ng-controller="MainCtrl as main">
 
-      <div class="header">
-
-      </div>
+      <header></header>
 
       <div class="container">
         <div class="row">
           <div class="col-sm-3"></div>
           <div class="col-sm-6">
-            <step-nav />
+            <step-nav></step-nav>
           </div>
           <div class="col-sm-3"></div>
         </div>
         <div ui-view></div>
       </div>
 
-      <div class="footer">
-
-      </div>
+      <footer></footer>
 
     </div>
 
@@ -121,10 +119,15 @@
     <script src="scripts/controllers/customize-strategies.js"></script>
     <script src="scripts/controllers/follow-strategies.js"></script>
 
+    <script src="scripts/services/data-storage.js"></script>
     <script src="scripts/services/navigation.js"></script>
+    <script src="scripts/services/strategy.js"></script>
+    <script src="scripts/services/asset-class.js"></script>
 
     <script src="scripts/directives/step-nav.js"></script>
     <script src="scripts/directives/cb-checkbox.js"></script>
+
+    <script src="scripts/filters/has-asset-class.js"></script>
     <!-- endbuild -->
 </body>
 </html>

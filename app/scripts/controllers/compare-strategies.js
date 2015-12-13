@@ -9,6 +9,12 @@
  */
 angular.module('returnBoostApp')
   .controller('CompareStrategiesCtrl', ['$scope', '$http', function ($scope, $http) {
+
+
+
+
+
+
     $scope.strategies = [
       {
         name: 'Stocks'

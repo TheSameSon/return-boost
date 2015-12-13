@@ -9,4 +9,6 @@ angular.module('returnBoostApp')
     $timeout(function() {
       navigation.goStep(0);
     }, 4000)*/
+
+  $scope.foo = 'bar';
   }]);
