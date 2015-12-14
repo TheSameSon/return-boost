@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('returnBoostApp')
-  .controller('MainCtrl', ['$scope', function ($scope){
+  .controller('MainCtrl', ['$rootScope', function ($rootScope){
 /*    $timeout(function() {
       navigation.goStep(1);
     }, 2000)
@@ -10,5 +10,5 @@ angular.module('returnBoostApp')
       navigation.goStep(0);
     }, 4000)*/
 
-  $scope.foo = 'bar';
+  $rootScope.foo = 'bar';
   }]);

@@ -8,15 +8,19 @@
  * Controller of the returnBoostApp
  */
 angular.module('returnBoostApp')
-  .controller('FindStrategiesCtrl', ['$scope', 'strategiesResolve', 'assetClassesResolve', 'dataStorage', '$filter', 'navigation', function ($scope, strategiesResolve, assetClassesResolve, dataStorage, $filter, navigation) {
-    $scope.assetClasses = assetClassesResolve;
-    $scope.strategies = strategiesResolve;
+  .controller('FindStrategiesCtrl', ['$scope', 'strategiesResolve', 'assetClassesResolve', 'dataStorage', '$filter', 'navigation', 'helper', function ($scope, strategiesResolve, assetClassesResolve, dataStorage, $filter, navigation, helper) {
+    // models
+    $scope.assetClasses = angular.copy(assetClassesResolve);
+    $scope.strategies = angular.copy(strategiesResolve);
+    $scope.selectedAssetClasses = angular.copy(dataStorage.selectedAssetClasses);
+    $scope.selectedStrategies = angular.copy(dataStorage.selectedStrategies);
 
-    $scope.selectedAssetClasses = [];
-    $scope.selectedStrategies = dataStorage.selectedStrategies;
+    // helpers
+    $scope.arrayIndexOf = helper.arrayIndexOf;
 
+    // actions
     $scope.toggleAssetClass = function (assetClass) {
-      var index = $scope.selectedAssetClasses.indexOf(assetClass);
+      var index = $scope.arrayIndexOf($scope.selectedAssetClasses, assetClass);
 
       if (index > -1) {
         $scope.selectedAssetClasses.splice(index, 1);
@@ -36,8 +40,9 @@ angular.module('returnBoostApp')
     };
 
     $scope.toggleStrategy = function (strategy) {
-      var index = $scope.selectedStrategies.indexOf(strategy);
-
+      console.log('toggleStrategy!!1');
+      var index = $scope.arrayIndexOf($scope.selectedStrategies, strategy);
+console.log($scope.selectedStrategies, strategy, index);
       if (index > -1) {
         $scope.selectedStrategies.splice(index, 1);
       } else {
@@ -51,12 +56,18 @@ angular.module('returnBoostApp')
     $scope.next = false;
 
     $scope.$watch(function() { return dataStorage.selectedStrategies }, function () {
+      console.log('controller:watch dataStorage.selectedStrategies', dataStorage.selectedStrategies);
+
       if (dataStorage.selectedStrategies.length > 0) {
         $scope.next = true;
-        navigation.stepsEnabled = [0, 1];
+
+        if (!angular.equals(navigation.stepsEnabled, [0, 1])) {
+          navigation.stepsEnabled = [0, 1];
+        }
       } else {
         $scope.next = false;
         navigation.stepsEnabled = [0];
       }
     }, true);
+
   }]);

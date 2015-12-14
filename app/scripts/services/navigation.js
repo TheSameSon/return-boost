@@ -4,28 +4,21 @@ angular.module('returnBoostApp')
   .factory('navigation', ['$state', '$rootScope', '$stateParams', '$timeout', function($state, $rootScope, $stateParams, $timeout){
     var navigation = {};
 
-    var _steps = [{
-        name: 'Find Strategies',
-        state: 'strategies-find'
-      },
-      {
-        name: 'Compare Strategies',
-        state: 'strategies-compare'
-      },
-      {
-        name: 'Customize Strategies',
-        state: 'strategies-customize'
-      },
-      {
-        name: 'Follow Strategy',
-        state: 'strategies-follow'
-      }],
+    var _steps = [],
       _current;
 
+    angular.forEach($state.get(), function (state) {
+      if (angular.isDefined(state.data) && angular.isDefined(state.data.step)) {
+        _steps[state.data.step.index] = {
+          name: state.data.step.name,
+          stateName: state.name
+        }
+      }
+    });
 
     var off = $rootScope.$on('$stateChangeSuccess', function (event, toState) {
       for (var i = 0; i < _steps.length; i++) {
-        if ($state.is(_steps[i].state)) {
+        if ($state.is(_steps[i].stateName)) {
           _current = i;
           break;
         }
@@ -33,7 +26,7 @@ angular.module('returnBoostApp')
 
       $rootScope.$broadcast('step:initiated', _current);
       off(); // unbind callback
-    })
+    });
 
     navigation.stepsEnabled = [0];
 
@@ -50,7 +43,7 @@ angular.module('returnBoostApp')
 
       if (angular.isUndefined(_steps[index])) return;
 
-      $state.go(_steps[index].state);
+      $state.go(_steps[index].stateName);
 
       $timeout(function () {
         _current = index;
