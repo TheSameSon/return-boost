@@ -39,18 +39,20 @@ angular.module('returnBoostApp')
     };
 
     navigation.goStep = function (index) {
-      var old = _current;
+      // var old = _current;
 
       if (angular.isUndefined(_steps[index])) return;
 
       $state.go(_steps[index].stateName);
-
-      $timeout(function () {
-        _current = index;
-
-        $rootScope.$broadcast('step:changed', _current, old);
-      }, 0);
     };
+
+    $rootScope.$on('$stateChangeSuccess', function () {
+      if (angular.isDefined($state.current.data) && angular.isDefined($state.current.data.step)) {
+        _current = $state.current.data.step.index;
+
+        $rootScope.$broadcast('step:changed', _current);
+      }
+    });
 
     return navigation;
   }])

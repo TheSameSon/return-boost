@@ -8,7 +8,7 @@
  * Controller of the returnBoostApp
  */
 angular.module('returnBoostApp')
-  .controller('FindStrategiesCtrl', ['$scope', 'strategiesResolve', 'assetClassesResolve', 'dataStorage', '$filter', 'navigation', 'helper', function ($scope, strategiesResolve, assetClassesResolve, dataStorage, $filter, navigation, helper) {
+  .controller('FindStrategiesCtrl', ['$scope', 'strategiesResolve', 'assetClassesResolve', 'dataStorage', '$filter', 'navigation', 'helper', 'ModalService', '$timeout', function ($scope, strategiesResolve, assetClassesResolve, dataStorage, $filter, navigation, helper, ModalService, $timeout) {
     // models
     $scope.assetClasses = angular.copy(assetClassesResolve);
     $scope.strategies = angular.copy(strategiesResolve);
@@ -40,9 +40,8 @@ angular.module('returnBoostApp')
     };
 
     $scope.toggleStrategy = function (strategy) {
-      console.log('toggleStrategy!!1');
       var index = $scope.arrayIndexOf($scope.selectedStrategies, strategy);
-console.log($scope.selectedStrategies, strategy, index);
+
       if (index > -1) {
         $scope.selectedStrategies.splice(index, 1);
       } else {
@@ -56,8 +55,6 @@ console.log($scope.selectedStrategies, strategy, index);
     $scope.next = false;
 
     $scope.$watch(function() { return dataStorage.selectedStrategies }, function () {
-      console.log('controller:watch dataStorage.selectedStrategies', dataStorage.selectedStrategies);
-
       if (dataStorage.selectedStrategies.length > 0) {
         $scope.next = true;
 
@@ -69,5 +66,16 @@ console.log($scope.selectedStrategies, strategy, index);
         navigation.stepsEnabled = [0];
       }
     }, true);
+
+    ModalService.showModal({
+      controller: 'ModalCtrl',
+      template: '<bootstrap-modal> <account-form on-register="closeModal(result)" on-login="closeModal(result)" on-reset="closeModal(result)" /> </bootstrap-modal>',
+    }).then(function(modal) {
+      // we need $timeout here to ensure the modal's DOM is appended.
+      // the third parameter is to prevent $digest cycle
+      $timeout(function() {
+        modal.element.modal();
+      }, 0, false);
+    });
 
   }]);

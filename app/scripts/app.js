@@ -15,10 +15,12 @@ angular
     'ngResource',
     'ngRoute',
     'ui.router',
+    'ui.bootstrap',
     'ngSanitize',
     'ngTouch',
     'helpers',
     'ui.utils.masks',
+    'angularModalService',
     'nvd3'
   ])
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -91,11 +93,11 @@ angular
   }])
   .run(['$rootScope', 'navigation', '$state', function ($rootScope, navigation, $state) {
 
-    $rootScope.$on('$stateChangeSuccess', function () {
-      var current = navigation.getCurrentStep() || 0,
-          enabled = navigation.stepsEnabled;
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+      var enabled = navigation.stepsEnabled;
 
-      if (enabled.indexOf(current) < 0) {
+      if (angular.isDefined(toState.data) && angular.isDefined(toState.data.step) && enabled.indexOf(toState.data.step.index) < 0) {
+        event.preventDefault();
         navigation.goStep(enabled[enabled.length - 1]);
       }
     })
