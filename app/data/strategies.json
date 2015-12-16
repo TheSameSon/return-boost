@@ -23,7 +23,7 @@
   },
   {
     "id": 789,
-    "risk": "mid (moderate)",
+    "risk": "high (aggressive)",
     "name": "Strategy 3",
     "description": "Momentum+Value",
     "performance": 0.05,

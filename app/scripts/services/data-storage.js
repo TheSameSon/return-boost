@@ -11,7 +11,8 @@
     var storage = {
       selectedAssetClasses: [],
       selectedStrategies: [],
-      investment: null
+      investment: null,
+      selectedStrategy: null,
     };
 
     return storage;

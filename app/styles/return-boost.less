@@ -4,7 +4,7 @@ header {
   height: 50px;
 }
 
-.asset-classes-wrap a {
+.asset-classes {
   display: block;
 }
 .nav-steps-list {
@@ -61,4 +61,39 @@ header {
 
 .account-form .buttons button {
   min-width: 115px;
+}
+.table-portfolios .progress {
+  height: 8px;
+}
+.progress-tick {
+  float: left;
+}
+.progress-tick + .progress {
+  margin-top: 5px;
+  margin-bottom: 0;
+  margin-left: 35px;
+}
+
+.txtc-success  {
+  color: @brand-success;
+}
+.txtc-primary  {
+  color: @brand-primary;
+}
+.txtc-info  {
+  color: @brand-info;
+}
+.txtc-danger  {
+  color: @brand-danger;
+}
+
+.txtc-warning  {
+  color: @brand-warning;
+}
+
+.nav-step.disabled .step-num {
+  cursor: default;
+}
+.nav-step.disabled .step-num span {
+  cursor: text;
 }

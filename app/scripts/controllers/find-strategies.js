@@ -9,11 +9,21 @@
  */
 angular.module('returnBoostApp')
   .controller('FindStrategiesCtrl', ['$scope', 'strategiesResolve', 'assetClassesResolve', 'dataStorage', '$filter', 'navigation', 'helper', 'ModalService', '$timeout', function ($scope, strategiesResolve, assetClassesResolve, dataStorage, $filter, navigation, helper, ModalService, $timeout) {
+
     // models
-    $scope.assetClasses = angular.copy(assetClassesResolve);
-    $scope.strategies = angular.copy(strategiesResolve);
-    $scope.selectedAssetClasses = angular.copy(dataStorage.selectedAssetClasses);
-    $scope.selectedStrategies = angular.copy(dataStorage.selectedStrategies);
+    $scope.assetClasses = assetClassesResolve;
+    $scope.strategies = strategiesResolve;
+    $scope.selectedAssetClasses = dataStorage.selectedAssetClasses;
+    $scope.selectedStrategies = dataStorage.selectedStrategies;
+/*
+dataStorage.selectedStrategy = strategiesResolve[0];
+dataStorage.selectedAssetClasses = [$scope.assetClasses[0], $scope.assetClasses[1]];
+dataStorage.selectedStrategies = [$scope.strategies[0], $scope.strategies[1]];
+dataStorage.investment = 10000;
+navigation.stepsEnabled = [0,1,2,3];
+console.log(dataStorage);
+navigation.goStep(3);
+*/
 
     // helpers
     $scope.arrayIndexOf = helper.arrayIndexOf;
@@ -67,15 +77,9 @@ angular.module('returnBoostApp')
       }
     }, true);
 
-    ModalService.showModal({
-      controller: 'ModalCtrl',
-      template: '<bootstrap-modal> <account-form on-register="closeModal(result)" on-login="closeModal(result)" on-reset="closeModal(result)" /> </bootstrap-modal>',
-    }).then(function(modal) {
-      // we need $timeout here to ensure the modal's DOM is appended.
-      // the third parameter is to prevent $digest cycle
-      $timeout(function() {
-        modal.element.modal();
-      }, 0, false);
-    });
-
+    $scope.goNext = function () {
+      if ($scope.next) {
+        navigation.goStep(1);
+      }
+    }
   }]);

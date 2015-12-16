@@ -11,7 +11,7 @@
       <div class="panel-body">
         <div class="asset-classes-wrap">
           <div class="col-lg-3" ng-repeat="assetClass in assetClasses track by assetClass.id">
-            <a class="btn btn-primary btn-lg" ng-class="{'btn-outline': arrayIndexOf(selectedAssetClasses, assetClass) < 0}" ng-click="toggleAssetClass(assetClass)" ng-bind="assetClass.name"></a>
+            <a class="asset-classes btn btn-primary btn-lg" ng-class="{'btn-outline': arrayIndexOf(selectedAssetClasses, assetClass) < 0}" ng-click="toggleAssetClass(assetClass)" ng-bind="assetClass.name"></a>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
               </thead>
               <tbody>
                 <tr ng-repeat="strategy in strategies | hasAssetClass : selectedAssetClasses">
-                  <td ng-bind="strategy.risk"></td>
+                  <td><risk-icon risk="{{strategy.risk}}"></risk-icon></td>
                   <td ng-bind="strategy.name"></td>
                   <td ng-bind="strategy.description"></td>
                   <td ng-bind="strategy.performance * 100 + '%'"></td>
@@ -47,11 +47,23 @@
                   <td ng-bind="strategy.std_dev * 100 + '%'"></td>
                   <td ng-bind="strategy.assets"></td>
                   <td>
-                    <label class="cb-checkbox" ng-class="{checked: arrayIndexOf($parent.selectedStrategies, strategy) > -1}"><span class="cb-inner"><i><input type="checkbox" ng-change="toggleStrategy(strategy)" ng-model="fake"></i></span></label>
+                    <label class="cb-checkbox" ng-class="{checked: arrayIndexOf($parent.selectedStrategies, strategy) > -1}"><span class="cb-inner"><i><input type="checkbox" ng-change="toggleStrategy(strategy)" ng-chacked="arrayIndexOf($parent.selectedStrategies, strategy)" ng-model="fake"></i></span></label>
                   </td>
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <div class="buttons">
+          <div class="col-lg-12">
+            <div class="text-right">
+              <a class="btn btn-success ml20" ng-disabled="!next" ng-click="goNext()">Next</a>
+            </div>
           </div>
         </div>
       </div>

@@ -8,47 +8,43 @@
  * Controller of the returnBoostApp
  */
 angular.module('returnBoostApp')
-  .controller('CustomizeStrategiesCtrl', ['$scope', function ($scope) {
-    $scope.strategies = [
-      {
-        name: 'Stocks'
-      },
-      {
-        name: 'Bonds'
-      },
-      {
-        name: 'Real Estate'
-      },
-      {
-        name: 'Commodities'
-      }
-    ];
+  .controller('CustomizeStrategiesCtrl', ['$scope', 'dataStorage', 'navigation', function ($scope, dataStorage, navigation) {
+    $scope.selectedAssetClasses = dataStorage.selectedAssetClasses;
+    $scope.investment = dataStorage.investment;
 
-    $scope.strategy = {
-      name: 'Strategy 1'
+    $scope.next = false;
+
+    $scope.goBack = function () {
+      navigation.stepsEnabled = [0, 1, 2]; // TODO: move 'stepsEnabled' defination to followed step controller, i.e. 2
+
+      navigation.goStep(2);
     }
-/*
-    $('#investments').mask('999999', {
-         radixPoint:".",
-         groupSeparator: ",",
-         digits: 2,
-         autoGroup: true,
-         prefix: '$'
-    })*/
 
-    // TODO: create service
-    $scope.selected = [];
+    $scope.next = false;
 
-    $scope.toggleStrategy = function(strategy) {
-      var index = $scope.selected.indexOf(strategy);
+    $scope.$watch('customizeForm.$valid', function () {
+      $scope.next = $scope.customizeForm.$valid;
+    });
 
-      if (index > -1) {
-        $scope.selected.splice(index, 1);
+    $scope.$watch('next', function () {
+      if ($scope.next) {
+        navigation.stepsEnabled = [0, 1, 2, 3];
       } else {
-        $scope.selected.push(strategy);
+        navigation.stepsEnabled = [0, 1, 2];
       }
+    });
 
-      console.log($scope.selected);
+    $scope.goBack = function () {
+      navigation.goStep(1);
     };
 
+    $scope.goNext = function () {
+      if (!$scope.next) return false;
+
+      dataStorage.investment = $scope.investment;
+
+      navigation.stepsEnabled = [0, 1, 2, 3];
+
+      navigation.goStep(3);
+    };
   }]);
