@@ -9,6 +9,7 @@
  */
 angular.module('returnBoostApp')
   .controller('CustomizeStrategiesCtrl', ['$scope', 'dataStorage', 'navigation', function ($scope, dataStorage, navigation) {
+    $scope.selectedStrategy = dataStorage.selectedStrategy;
     $scope.selectedAssetClasses = dataStorage.selectedAssetClasses;
     $scope.investment = dataStorage.investment;
 

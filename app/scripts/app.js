@@ -44,6 +44,8 @@ angular
       if (angular.isDefined(toState.data) && angular.isDefined(toState.data.step) && enabled.indexOf(toState.data.step.index) < 0) {
         event.preventDefault();
         navigation.goStep(enabled[enabled.length - 1]);
+      } else {
+        angular.element(document).scrollTop();
       }
     })
   }]);

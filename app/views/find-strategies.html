@@ -11,7 +11,7 @@
       <div class="panel-body">
         <div class="asset-classes-wrap">
           <div class="col-lg-3" ng-repeat="assetClass in assetClasses track by assetClass.id">
-            <a class="asset-classes btn btn-primary btn-lg" ng-class="{'btn-outline': arrayIndexOf(selectedAssetClasses, assetClass) < 0}" ng-click="toggleAssetClass(assetClass)" ng-bind="assetClass.name"></a>
+            <a class="asset-class btn btn-primary btn-lg" ng-class="{'btn-outline': arrayIndexOf(selectedAssetClasses, assetClass) < 0}" ng-click="toggleAssetClass(assetClass)" ng-bind="assetClass.name"></a>
           </div>
         </div>
       </div>
@@ -23,22 +23,22 @@
       </div>
       <div class="panel-body">
         <div class="col-lg-12">
-          <div class="portfolios-wrap table-responsive">
+          <div class="strategies-wrap table-responsive">
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th><a>RISK</a></th>
-                  <th><a>NAME</a></th>
-                  <th><a>STRATEGY</a></th>
-                  <th><a>PERFORMANCE YTD</a></th>
-                  <th><a>CAGR</a></th>
-                  <th><a>StdDev</a></th>
-                  <th><a># Assets</a></th>
+                  <th><a ng-click="orderStrategy('risk')">RISK <i class="fa" ng-class="stReverse ? 'fa-caret-down' : 'fa-caret-up'" ng-show="stOrder === 'risk'"></i></a></th>
+                  <th><a ng-click="orderStrategy('name')">NAME <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'name'"></i></a></th>
+                  <th><a ng-click="orderStrategy('description')">STRATEGY <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'description'"></i></a></th>
+                  <th><a ng-click="orderStrategy('performance')">PERFORMANCE YTD <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'performance'"></i></a></th>
+                  <th><a ng-click="orderStrategy('cagr')">CAGR <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'cagr'"></i></a></th>
+                  <th><a ng-click="orderStrategy('std_dev')">StdDev <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'std_dev'"></i></a></th>
+                  <th><a ng-click="orderStrategy('assets')"># Assets <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'assets'"></i></a></th>
                   <th><a>Compare</a></th>
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="strategy in strategies | hasAssetClass : selectedAssetClasses">
+                <tr ng-repeat="strategy in strategies | hasAssetClass : selectedAssetClasses | strategyOrderBy: stOrder : stReverse">
                   <td><risk-icon risk="{{strategy.risk}}"></risk-icon></td>
                   <td ng-bind="strategy.name"></td>
                   <td ng-bind="strategy.description"></td>

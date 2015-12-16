@@ -78,7 +78,7 @@
         <div class="panel-body">
           <div class="asset-classes-wrap static clearfix mb20">
             <div class="col-lg-3" ng-repeat="assetClass in assetClasses track by assetClass.id">
-              <span class="asset-classes text-center btn-lg" ng-class="{'bg-disabled': arrayIndexOf(selectedAssetClasses, assetClass) < 0, 'bg-primary': arrayIndexOf(selectedAssetClasses, assetClass) > -1}" disabled ng-bind="assetClass.name"></span>
+              <span class="asset-class text-center btn-lg" ng-class="{'bg-disabled': arrayIndexOf(selectedAssetClasses, assetClass) < 0, 'bg-primary': arrayIndexOf(selectedAssetClasses, assetClass) > -1}" disabled ng-bind="assetClass.name"></span>
             </div>
           </div>
           <div class="col-lg-12 box-tab">
@@ -173,12 +173,14 @@
 
       <div class="panel">
         <div class="panel-body">
-          <div class="col-sm-6">Investments</div>
-          <div class="col-sm-6">
-            <div class="text-right">
-              $<span ng-bind="investment | number"></span>
+          <h2>
+            <div class="col-sm-6">Investments</div>
+            <div class="col-sm-6">
+              <div class="text-right">
+                $<span ng-bind="investment | number"></span>
+              </div>
             </div>
-          </div>
+          </h2>
         </div>
       </div>
 
@@ -192,8 +194,8 @@
       </div>
     </div>
 
-    <div class="panel text-center">
-      <div class="panel-heading"><h4 class="col-lg-12">Subscribe to updates for this strategy</h4></div>
+    <div class="panel text-center subscribe-panel">
+      <div class="panel-heading"><h1 class="col-lg-12">Subscribe to updates for this strategy</h1></div>
       <div class="panel-body">
         <div class="col-lg-12">
           <a class="btn btn-success btn-lg" ng-click="subscribe()">Confirm</a>

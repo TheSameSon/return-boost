@@ -1,14 +1,17 @@
 'use strict';
 
 angular.module('returnBoostApp')
-  .controller('MainCtrl', ['$rootScope', function ($rootScope){
-/*    $timeout(function() {
-      navigation.goStep(1);
-    }, 2000)
+  .controller('MainCtrl', ['$scope', function ($scope){
 
-    $timeout(function() {
-      navigation.goStep(0);
-    }, 4000)*/
+    $scope.stOrder = 'name';
+    $scope.stReverse = false;
 
-  $rootScope.foo = 'bar';
+    $scope.orderStrategy = function (prop) {
+      if ($scope.stOrder === prop) {
+        $scope.stReverse = !$scope.stReverse;
+      } else {
+        $scope.stReverse = false;
+        $scope.stOrder = prop;
+      }
+    }
   }]);
