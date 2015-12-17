@@ -48,7 +48,7 @@ angular.module('returnBoostApp')
         // the third parameter is to prevent $digest cycle
         $timeout(function() {
           modal.element.modal();
-        }, 0, false);
+        }, 100, false);
       });
     }
   }]);

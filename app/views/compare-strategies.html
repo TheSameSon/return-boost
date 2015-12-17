@@ -7,12 +7,13 @@
       <div class="panel-heading">
         <h2 class="col-lg-12">Performance Comparsion</h2>
       </div>
+      <!-- <div id="container"></div> -->
       <div class="panel-body">
         <div class="col-lg-8">
-          <nvd3 ng-if="performanceChart" options="performanceChart.options" data="performanceChart.data"></nvd3>
+          <highchart ng-if="performanceChart" id="performanceChart" config="performanceChart"></highchart>
         </div>
         <div class="col-lg-4">
-          <nvd3 ng-if="riskChart" options="riskChart.options" data="riskChart.data"></nvd3>
+          <highchart ng-if="riskChart" id="riskChart" config="riskChart"></highchart>
         </div>
       </div>
     </div>

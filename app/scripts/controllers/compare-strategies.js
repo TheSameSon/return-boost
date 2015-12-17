@@ -8,7 +8,7 @@
  * Controller of the returnBoostApp
  */
 angular.module('returnBoostApp')
-  .controller('CompareStrategiesCtrl', ['$scope', 'chart', 'dataStorage', 'assetClassesResolve', 'helper', 'navigation', function ($scope, chart, dataStorage, assetClassesResolve, helper, navigation) {
+  .controller('CompareStrategiesCtrl', ['$scope', 'chart', 'highchartsNG', 'dataStorage', 'assetClassesResolve', 'helper', 'navigation', function ($scope, chart, highchartsNG, dataStorage, assetClassesResolve, helper, navigation) {
 
     $scope.assetClasses = assetClassesResolve;
     $scope.selectedAssetClasses = dataStorage.selectedAssetClasses;

@@ -10,14 +10,14 @@
         <div class="col-lg-1"></div>
       </div>
       <div class="panel-body">
-        <div class="col-lg-6">
-          <nvd3 ng-if="performanceChart" options="performanceChart.options" data="performanceChart.data"></nvd3>
+        <div class="col-lg-5">
+          <highchart ng-if="performanceChart" id="performanceChart" config="performanceChart"></highchart>
         </div>
         <div class="col-lg-3">
-          <nvd3 ng-if="riskChart" options="riskChart.options" data="riskChart.data"></nvd3>
+          <highchart ng-if="riskChart" id="riskChart" config="riskChart"></highchart>
         </div>
-        <div class="col-lg-3">
-          <nvd3 ng-if="allocationChart" options="allocationChart.options" data="allocationChart.data"></nvd3>
+        <div class="col-lg-4">
+          <highchart ng-if="allocationChart" id="allocationChart" config="allocationChart"></highchart>
         </div>
       </div>
     </div>

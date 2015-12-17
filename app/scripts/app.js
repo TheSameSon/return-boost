@@ -21,7 +21,7 @@ angular
     'helpers',
     'ui.utils.masks',
     'angularModalService',
-    'nvd3'
+    'highcharts-ng'
   ])
   .constant('COLORS', {
     warning: '#ffc65d',
@@ -36,6 +36,15 @@ angular
     dark: '#4C5064',
     'default': '#e2e2e2',
   })
+  .config(['highchartsNGProvider', function (highchartsNGProvider) {
+    // highchartsNGProvider.lazyLoad(); // will load hightcharts (and standalone framework if jquery is not present) from code.hightcharts.com
+
+    // highchartsNGProvider.lazyLoad([highchartsNGProvider.HIGHCHART, "maps/modules/map.js", "mapdata/custom/world.js"]);// you may add any additional modules and they will be loaded in the same sequence
+    // highchartsNGProvider.lazyLoad([highchartsNGProvider.HIGHSTOCK, "stock/modules/exporting.js"]);// you may add any additional modules and they will be loaded in the same sequence
+
+    //highchartsNGProvider.basePath("/scripts/"); // change base path for scripts, default is http(s)://code.highcharts.com/
+
+  }])
   .run(['$rootScope', 'navigation', '$state', function ($rootScope, navigation, $state) {
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
