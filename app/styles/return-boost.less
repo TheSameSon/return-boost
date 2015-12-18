@@ -2,8 +2,58 @@
 @import "theme/less/variables.less";
 @import "return-boost.skin.less";
 
+div[ui-view] {
+  min-height: 200px;
+}
+
 header {
-  height: 50px;
+  height: 100px;
+  margin-bottom: 50px;
+
+  .main-menu {
+    margin: 40px 0 0;
+
+    ul {
+      padding: 0;
+      list-style: none;
+
+      li {
+        display: inline-block;
+        padding: 0 10px 0;
+
+        a {
+          text-transform: uppercase;
+          color:  @header-skin-color;
+          font-size: 13px;
+          font-weight: bold;
+        }
+        a:hover {
+          color: @link-hover-color;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  margin-top: 180px;
+
+  .footer-inner {
+    padding: 40px;
+    text-align: center;
+    font-size: 11px;
+  }
+}
+
+.social-links ul {
+  list-style: none;
+  margin: 20px 30px 20px 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    padding: 0 5px;
+  }
 }
 
 .asset-classes {
@@ -131,7 +181,22 @@ header {
       display: block;
       position: relative;
     }
+  }
+  footer {
+    margin-top: 80px;
 
+    .social-links ul {
+      margin-top: 40px;
+      margin-right: 0;
+      text-align: center;
+
+      li {
+        padding: 0 15px;
+      }
+      i {
+        font-size: 20px;
+      }
+    }
   }
 }
 @media screen and (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
