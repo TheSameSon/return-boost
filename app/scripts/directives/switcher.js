@@ -21,6 +21,8 @@ angular.module('returnBoostApp')
             return false;
           }
 
+          element.addClass('just-switched');
+
           scope.onSwitch();
         });
 
@@ -29,8 +31,6 @@ angular.module('returnBoostApp')
         });
 
         scope.$watch('isSwitched', function (value) {
-          element.addClass('just-switched');
-
           if (value) {
             element.removeClass('switched-off btn-outline');
             element.addClass('switched-on');

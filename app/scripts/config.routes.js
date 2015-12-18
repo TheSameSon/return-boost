@@ -1,7 +1,7 @@
 'use strict';
 angular.module('returnBoostApp')
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/find-strategies');
 
     $stateProvider
       .state('home', {

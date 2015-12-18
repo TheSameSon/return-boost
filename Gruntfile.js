@@ -182,19 +182,12 @@ module.exports = function (grunt) {
         src: '<%= config.app %>/styles/theme/less/urban.skins.less',
         dest: '.tmp/styles/theme/urban.skins.css'
       },
-      compileAppCore: {
+      compileApp: {
         options: {
           strictMath: true
         },
         src: '<%= config.app %>/styles/return-boost.less',
         dest: '.tmp/styles/return-boost.css'
-      },
-      compileAppSkin: {
-        options: {
-          strictMath: true
-        },
-        src: '<%= config.app %>/styles/return-boost.skin.less',
-        dest: '.tmp/styles/return-boost.skin.css'
       }
     },
 
@@ -454,7 +447,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileSkin', 'less:compileAppCore', 'less:compileAppSkin']);
+  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileSkin', 'less:compileApp']);
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
