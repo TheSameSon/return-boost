@@ -6,21 +6,33 @@
         <form name="customizeForm" class="customize-form form-horizontal bordered-group" novalidate >
           <div class="bordered-group">
             <div class="form-group va-middle">
-              <h2 class="col-lg-12">You have chosen <span ng-bind="selectedStrategy.name"></span></h2>
+              <div class="col-lg-12 heading-title">You have chosen <span ng-bind="selectedStrategy.name"></span></div>
             </div>
             <div class="form-group va-middle">
-              <div class="col-lg-6">You selected the following asset classes:</div>
-             <div class="col-lg-6">
-              <div class="asset-classes-wrap">
-                <div class="col-lg-6" ng-repeat="assetClass in selectedAssetClasses track by assetClass.id">
-                  <span class="asset-class bg-primary text-center btn-lg" ng-bind="assetClass.name"></span>
+              <div class="col-sm-6 col-xs-12">
+                <div class="hidden-xs">You selected the following asset classes:</div>
+                <div class="visible-xs heading-title">You selected the following asset classes:</div>
+              </div>
+              <div class="col-sm-6 col-xs-12">
+                <div class="asset-classes-wrap row">
+                  <div class="col-lg-6 col-md-6" ng-repeat="assetClass in selectedAssetClasses track by assetClass.id">
+                    <span class="asset-class bg-primary text-center btn-lg" ng-bind="assetClass.name"></span>
+                  </div>
                 </div>
               </div>
-             </div>
             </div>
             <div class="form-group va-middle">
-              <div class="col-lg-6"><label for="investment">How much do you want to invest?</label></div>
-              <div class="col-lg-6"><div class="col-lg-12"><input class="form-control input-lg" id="investment" name="investment" type="text" placeholder="$ 00,000" ui-money-mask="0" required ng-model="investment"></div></div>
+              <div class="col-sm-6 col-xs-12">
+                <div class="hidden-xs"><label for="investment">How much do you want to invest?</label></div>
+                <div class="visible-xs heading-title"><label for="investment">How much do you want to invest?</label></div>
+              </div>
+              <div class="col-sm-6 col-xs-12">
+                <div class="col-lg-12">
+                  <div class="row">
+                    <input class="form-control input-lg" id="investment" name="investment" type="text" placeholder="$ 00,000" ui-money-mask="0" required ng-model="investment">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </form>
@@ -30,10 +42,10 @@
     <div class="panel">
       <div class="panel-body">
         <div class="buttons">
-          <div class="col-sm-6">
+          <div class="col-sm-6 col-xs-6">
             <a class="btn btn-default" ng-click="goBack()"><i class="fa fa-caret-left mr10"></i> Back</a>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 col-xs-6">
             <div class="text-right">
               <a class="btn btn-success ml20" ng-disabled="!next" ng-click="goNext()">Next <i class="fa fa-caret-right ml10"></i></a>
             </div>

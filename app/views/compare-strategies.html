@@ -5,14 +5,14 @@
   <div class="col-lg-10 col-md-12">
     <div class="panel mb25">
       <div class="panel-heading">
-        <h2 class="col-lg-12">Performance Comparsion</h2>
+        <div class="col-sm-12 heading-title">Performance Comparsion</div>
       </div>
       <!-- <div id="container"></div> -->
       <div class="panel-body">
-        <div class="col-lg-8">
+        <div class="col-sm-8">
           <highchart ng-if="performanceChart" id="performanceChart" config="performanceChart"></highchart>
         </div>
-        <div class="col-lg-4">
+        <div class="col-sm-4">
           <highchart ng-if="riskChart" id="riskChart" config="riskChart"></highchart>
         </div>
       </div>
@@ -20,7 +20,7 @@
 
     <div class="panel">
       <div class="panel-heading">
-        <h2 class="col-lg-12">Perfomance Details</h2>
+        <div class="col-lg-12 heading-title">Perfomance Details</div>
       </div>
       <div class="panel-body">
         <div class="asset-classes-wrap static clearfix mb20">
@@ -38,7 +38,7 @@
           </ul>
           <div class="tab-content">
             <div class="tab-pane active in" id="perf-tab-summary">
-              <div class="table-responsive">
+              <div class="no-more-tables">
                 <table class="table table-bordered table-striped mb0">
                   <thead>
                     <tr>
@@ -49,16 +49,16 @@
                   </thead>
                   <tbody>
                     <tr ng-repeat="strategy in selectedStrategies">
-                      <td ng-bind="strategy.name"></td>
-                      <td ng-bind="strategy.description"></td>
-                      <td><risk-icon risk="{{strategy.risk}}"></risk-icon></td>
+                      <td data-title="Strategy" ng-bind="strategy.name"></td>
+                      <td data-title="Description" ng-bind="strategy.description"></td>
+                      <td data-title="Risk"><risk-icon risk="{{strategy.risk}}"></risk-icon></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
             <div class="tab-pane" id="perf-tab-performance">
-              <div class="table-responsive">
+              <div class="no-more-tables">
                 <table class="table table-bordered table-striped mb0">
                   <thead>
                     <tr>
@@ -74,21 +74,21 @@
                   </thead>
                   <tbody>
                     <tr ng-repeat="strategy in selectedStrategies">
-                      <td ng-bind="strategy.name"></td>
-                      <td ng-bind="strategy.cagr * 100 + '%'"></td>
-                      <td>3%</td>
-                      <td>5%</td>
-                      <td>3%</td>
-                      <td>5%</td>
-                      <td>12%</td>
-                      <td ng-bind="strategy.std_dev * 100 + '%'">12%</td>
+                      <td data-title="Strategy" ng-bind="strategy.name"></td>
+                      <td data-title="CAGR" ng-bind="strategy.cagr * 100 + '%'"></td>
+                      <td data-title="YTD">3%</td>
+                      <td data-title="1 Year">5%</td>
+                      <td data-title="3 Year">3%</td>
+                      <td data-title="5 Year">5%</td>
+                      <td data-title="10 Year">12%</td>
+                      <td data-title="Annual Std Dev" ng-bind="strategy.std_dev * 100 + '%'"></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
             <div class="tab-pane" id="perf-tab-risk">
-              <div class="table-responsive">
+              <div class="no-more-tables">
                 <table class="table table-bordered table-striped mb0">
                   <thead>
                     <tr>
@@ -101,11 +101,11 @@
                   </thead>
                   <tbody>
                     <tr ng-repeat="strategy in selectedStrategies">
-                      <td ng-bind="strategy.name"></td>
-                      <td>12%</td>
-                      <td>1.1</td>
-                      <td>1.1</td>
-                      <td>TODO: add risk icon here</td>
+                      <td data-title="Strategy" ng-bind="strategy.name"></td>
+                      <td data-title="Annual Ration">12%</td>
+                      <td data-title="Sharpe Ratio">1.1</td>
+                      <td data-title="Sortino Ratio">1.1</td>
+                      <td data-title="Risk"><risk-icon risk="{{strategy.risk}}"></risk-icon></td>
                     </tr>
                   </tbody>
                 </table>
@@ -120,12 +120,12 @@
 
     <div class="panel">
       <div class="panel-body">
-        <div class="col-sm-2">
+        <div class="col-sm-2 col-xs-6">
           <a ng-click="back()" class="btn btn-default"><i class="fa fa-caret-left mr10"></i> Back</a>
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-10 col-xs-6">
           <div class="text-right">
-            <a class="btn btn-success ml20" ng-repeat="strategy in selectedStrategies" ng-click="selectStrategy(strategy)">Select <span ng-bind="strategy.name"></span> <i class="fa fa-caret-right ml10"></i></a>
+            <a class="btn btn-success ml20 mb15" ng-repeat="strategy in selectedStrategies" ng-click="selectStrategy(strategy)">Select <span ng-bind="strategy.name"></span> <i class="fa fa-caret-right ml10"></i></a>
           </div>
         </div>
       </div>

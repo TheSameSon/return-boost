@@ -25,6 +25,8 @@ header {
 }
 .step-name {
   display: block;
+  margin-top: 10px;
+  line-height: 17px;
 }
 .nav-step .step-num {
   width: 50px;
@@ -43,10 +45,10 @@ header {
 }
 .nav-step.active .step-name {
   opacity: 1;
-  margin-top: 5px;
 }
 .step-nav-container {
   position: relative;
+  margin-bottom: 35px;
 }
 .nav-progress {
   margin: 23px 12.5% 0 12.5%;
@@ -109,4 +111,35 @@ header {
 }
 .switcher.just-switched:before {
   opacity: 0;
+}
+.panel-heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+@media screen and (max-width: @screen-xs-max) {
+  .heading-title {
+    font-size: 22px;
+  }
+  .va-middle {
+    display: block;
+  }
+  .no-more-tables table {
+    tfoot {
+      display: block;
+    }
+
+    td[class*="col-"], th[class*="col-"] {
+      display: block;
+      position: relative;
+    }
+
+  }
+}
+@media screen and (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+  .no-more-tables {
+    td, th {
+      font-size: 11px;
+    }
+  }
 }

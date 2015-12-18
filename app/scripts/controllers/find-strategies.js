@@ -22,8 +22,8 @@ dataStorage.selectedAssetClasses = [$scope.assetClasses[0], $scope.assetClasses[
 dataStorage.selectedStrategies = [$scope.strategies[0], $scope.strategies[1]];
 dataStorage.investment = 10000;
 navigation.stepsEnabled = [0,1,2,3];
-navigation.goStep(3);
-*/
+navigation.goStep(3);*/
+
 
     // helpers
     $scope.arrayIndexOf = helper.arrayIndexOf;
