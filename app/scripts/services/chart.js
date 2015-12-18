@@ -118,6 +118,13 @@ angular.module('returnBoostApp')
             plotBorderWidth: null,
             plotShadow: false,
             type: 'pie'
+        },
+        plotOptions: {
+          pie: {
+            dataLabels: {
+              distance: -40
+            }
+          }
         }
       },
       title: {

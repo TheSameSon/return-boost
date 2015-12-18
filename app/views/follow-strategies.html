@@ -6,17 +6,17 @@
 
       <div class="panel-heading">
         <div class="col-lg-1"></div>
-        <h2 class="col-lg-10">Summary</h2>
+        <div class="col-lg-10 heading-title">Summary</div>
         <div class="col-lg-1"></div>
       </div>
       <div class="panel-body">
-        <div class="col-lg-5">
+        <div class="col-lg-6">
           <highchart ng-if="performanceChart" id="performanceChart" config="performanceChart"></highchart>
         </div>
         <div class="col-lg-3">
           <highchart ng-if="riskChart" id="riskChart" config="riskChart"></highchart>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <highchart ng-if="allocationChart" id="allocationChart" config="allocationChart"></highchart>
         </div>
       </div>
@@ -26,7 +26,7 @@
     <div class="col-lg-10">
       <div class="panel mb25">
         <div class="panel-heading">
-          <h2 class="col-lg-12">Portfolio Weightings</h2>
+          <div class="col-lg-12 heading-title">Portfolio Weightings</div>
         </div>
         <div class="panel-body">
           <div class="col-lg-12">
@@ -71,17 +71,12 @@
         </div>
       </div>
 
-      <div class="panel">
+      <div class="panel mb0">
         <div class="panel-heading">
-          <h2 class="col-lg-12">Perfomance Details</h2>
+          <div class="col-lg-12 heading-title">Perfomance Details</div>
         </div>
         <div class="panel-body">
-          <div class="asset-classes-wrap static clearfix mb20">
-            <div class="col-lg-3" ng-repeat="assetClass in assetClasses track by assetClass.id">
-              <span class="asset-class text-center btn-lg" ng-class="{'bg-disabled': arrayIndexOf(selectedAssetClasses, assetClass) < 0, 'bg-primary': arrayIndexOf(selectedAssetClasses, assetClass) > -1}" disabled ng-bind="assetClass.name"></span>
-            </div>
-          </div>
-          <div class="col-lg-12 box-tab">
+          <div class="col-lg-12 box-tab mb0">
             <ul class="nav nav-tabs">
               <li class="active"><a data-target="#perf-tab-summary" data-toggle="tab">Summary</a></li>
               <li><a data-target="#perf-tab-performance" data-toggle="tab">Performance</a></li>
@@ -173,14 +168,14 @@
 
       <div class="panel">
         <div class="panel-body">
-          <h2>
+          <div class="heading-title">
             <div class="col-sm-6">Investments</div>
             <div class="col-sm-6">
               <div class="text-right">
                 $<span ng-bind="investment | number"></span>
               </div>
             </div>
-          </h2>
+          </div>
         </div>
       </div>
 

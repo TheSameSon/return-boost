@@ -5,13 +5,13 @@
   <div class="col-lg-10 col-md-12">
     <div class="panel mb25">
       <div class="panel-heading">
-        <h2 class="col-lg-12">Select Asset Classes you want to invest in</h2>
+        <div class="col-lg-12 heading-title">Select Asset Classes you want to invest in</div>
       </div>
 
       <div class="panel-body">
         <div class="asset-classes-wrap">
           <div class="col-lg-3" ng-repeat="assetClass in assetClasses track by assetClass.id">
-            <a class="asset-class btn btn-primary btn-lg" ng-class="{'btn-outline': arrayIndexOf(selectedAssetClasses, assetClass) < 0}" ng-click="toggleAssetClass(assetClass)" ng-bind="assetClass.name"></a>
+            <a class="asset-class btn-lg" switcher="primary" is-switched="arrayIndexOf(selectedAssetClasses, assetClass) > -1" on-switch="toggleAssetClass(assetClass)" ng-bind="assetClass.name"></a>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
 
     <div class="panel" ng-show="(strategies | hasAssetClass : selectedAssetClasses).length > 0">
       <div class="panel-heading">
-        <h2 class="col-lg-12">Select Portfolio you want to compare</h2>
+        <div class="col-lg-12 heading-title">Select Portfolio you want to compare</div>
       </div>
       <div class="panel-body">
         <div class="col-lg-12">

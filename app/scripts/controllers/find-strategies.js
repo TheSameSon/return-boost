@@ -16,13 +16,14 @@ angular.module('returnBoostApp')
     $scope.selectedAssetClasses = dataStorage.selectedAssetClasses;
     $scope.selectedStrategies = dataStorage.selectedStrategies;
 
+/*
 dataStorage.selectedStrategy = strategiesResolve[0];
 dataStorage.selectedAssetClasses = [$scope.assetClasses[0], $scope.assetClasses[1]];
 dataStorage.selectedStrategies = [$scope.strategies[0], $scope.strategies[1]];
 dataStorage.investment = 10000;
 navigation.stepsEnabled = [0,1,2,3];
 navigation.goStep(3);
-
+*/
 
     // helpers
     $scope.arrayIndexOf = helper.arrayIndexOf;
@@ -31,11 +32,13 @@ navigation.goStep(3);
     $scope.toggleAssetClass = function (assetClass) {
       var index = $scope.arrayIndexOf($scope.selectedAssetClasses, assetClass);
 
-      if (index > -1) {
-        $scope.selectedAssetClasses.splice(index, 1);
-      } else {
-        $scope.selectedAssetClasses.push(assetClass);
-      }
+      $scope.$apply(function () {
+        if (index > -1) {
+          $scope.selectedAssetClasses.splice(index, 1);
+        } else {
+          $scope.selectedAssetClasses.push(assetClass);
+        }
+      });
 
       // unselect strategies which hasn't selected asset classes
       $scope.selectedStrategies = $filter('hasAssetClass')($scope.selectedStrategies, $scope.selectedAssetClasses);
@@ -46,6 +49,7 @@ navigation.goStep(3);
       if (!angular.equals(dataStorage.selectedStrategies, $scope.selectedStrategies)) {
         dataStorage.selectedStrategies = $scope.selectedStrategies;
       }
+      console.log(dataStorage);
     };
 
     $scope.toggleStrategy = function (strategy) {
