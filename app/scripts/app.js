@@ -37,7 +37,7 @@ angular
     'default': '#e2e2e2',
   })
   .run(['$rootScope', 'navigation', '$window', function ($rootScope, navigation, $window) {
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+    $rootScope.$on('$stateChangeStart', function (event, toState) {
       var enabled = navigation.stepsEnabled;
 
       if (angular.isDefined(toState.data) && angular.isDefined(toState.data.step) && enabled.indexOf(toState.data.step.index) < 0) {

@@ -13,5 +13,6 @@ angular.module('returnBoostApp')
         $scope.stReverse = false;
         $scope.stOrder = prop;
       }
-    }
+    };
+
   }]);

@@ -7,5 +7,6 @@ angular.module('returnBoostApp')
 
       angular.element('body').removeClass('modal-open');
       angular.element('body').css({paddingRight: 0});
-    }
+    };
+
   }]);

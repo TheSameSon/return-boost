@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('returnBoostApp')
-  .factory('navigation', ['$state', '$rootScope', '$stateParams', '$timeout', function($state, $rootScope, $stateParams, $timeout){
+  .factory('navigation', ['$state', '$rootScope', function($state, $rootScope){
     var navigation = {};
 
     var _steps = [],
@@ -12,17 +12,17 @@ angular.module('returnBoostApp')
         _steps[state.data.step.index] = {
           name: state.data.step.name,
           stateName: state.name
-        }
+        };
       }
     });
 
-    var off = $rootScope.$on('$stateChangeSuccess', function (event, toState) {
+    var off = $rootScope.$on('$stateChangeSuccess', function () {
       for (var i = 0; i < _steps.length; i++) {
         if ($state.is(_steps[i].stateName)) {
           _current = i;
           break;
         }
-      };
+      }
 
       $rootScope.$broadcast('step:initiated', _current);
       off(); // unbind callback
@@ -32,16 +32,16 @@ angular.module('returnBoostApp')
 
     navigation.getSteps = function () {
       return _steps;
-    }
+    };
 
     navigation.getCurrentStep = function () {
       return _current;
     };
 
     navigation.goStep = function (index) {
-      // var old = _current;
-
-      if (angular.isUndefined(_steps[index])) return;
+      if (angular.isUndefined(_steps[index])) {
+        return false;
+      }
 
       $state.go(_steps[index].stateName);
     };
@@ -55,4 +55,4 @@ angular.module('returnBoostApp')
     });
 
     return navigation;
-  }])
+  }]);

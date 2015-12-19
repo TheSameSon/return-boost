@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('returnBoostApp')
-  .factory('Strategy', ['$resource', '$filter', function($resource, $filter){
+  .factory('Strategy', ['$resource', function($resource){
     var Strategy = $resource('data/strategies.json', {
       strategyId: '@id'
     });

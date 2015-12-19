@@ -14,9 +14,9 @@ angular.module('returnBoostApp')
           if (filterBy.indexOf(list[i].asset_classes[j]) > -1 && filtered.indexOf(list[i]) < 0) {
             filtered.push(list[i]);
           }
-        };
-      };
+        }
+      }
 
       return filtered;
-    }
+    };
   }]);

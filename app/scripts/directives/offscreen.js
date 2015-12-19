@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('returnBoostApp')
-  .directive('offscreen', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
+  .directive('offscreen', [function () {
     return {
       restrict: 'EA',
       replace: true,
@@ -19,7 +19,7 @@ angular.module('returnBoostApp')
           }
         });
       },
-      controller: function ($scope, $element, $timeout) {
+      controller: function ($scope) {
         var dir,
           offscreenDirectionClass;
 

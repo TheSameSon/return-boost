@@ -7,4 +7,4 @@ angular.module('returnBoostApp')
     });
 
     return Portfolio;
-  }])
+  }]);

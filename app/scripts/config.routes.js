@@ -22,7 +22,7 @@ angular.module('returnBoostApp')
         controllerAs: 'findStrategies',
         templateUrl: 'views/find-strategies.html',
         resolve: {
-          strategiesResolve: ['Strategy', 'helper', 'COLORS', function (Strategy, helper, COLORS) {
+          strategiesResolve: ['Strategy', function (Strategy) {
             return Strategy.query().$promise;
           }],
           assetClassesResolve: ['AssetClass', function (AssetClass) {
@@ -75,5 +75,5 @@ angular.module('returnBoostApp')
             return Portfolio.query().$promise;
           }]
         }
-      })
+      });
   }]);

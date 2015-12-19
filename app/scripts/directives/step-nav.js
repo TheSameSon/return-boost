@@ -1,23 +1,21 @@
 'use strict';
 
 angular.module('returnBoostApp')
-  .directive('stepNav', ['navigation', 'dataStorage', '$interval', function (navigation, dataStorage, $interval) {
+  .directive('stepNav', ['navigation', function (navigation) {
     return {
       restrict: 'E',
       templateUrl: 'views/directives/step-nav.html',
-      link: function (scope, element, attrs) {
+      link: function (scope) {
         scope.steps = navigation.getSteps();
 
         scope.stepsEnabled = [];
-        scope.$watch(function() { return navigation.stepsEnabled }, function () {
+        scope.$watch(function() { return navigation.stepsEnabled; }, function () {
           scope.stepsEnabled = navigation.stepsEnabled;
-        })
-
-        scope.current;
+        });
 
         var updateCurrent = function (index) {
           scope.current = index;
-        }
+        };
 
         scope.$on('step:initiated', function () {
           updateCurrent(navigation.getCurrentStep());
@@ -29,7 +27,7 @@ angular.module('returnBoostApp')
 
         scope.goStep = function (index) {
           navigation.goStep(index);
-        }
+        };
       }
-    }
+    };
   }]);

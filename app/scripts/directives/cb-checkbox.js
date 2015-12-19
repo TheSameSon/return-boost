@@ -4,7 +4,7 @@ angular.module('returnBoostApp')
   .directive('cbCheckbox', [function () {
     return {
       restrict: 'CA',
-      link: function (scope, element, attrs) {
+      link: function (scope, element) {
         var input = element.find('input[type="checkbox"]');
 
         function changeCallback() {
@@ -21,5 +21,6 @@ angular.module('returnBoostApp')
         // initial setup
         changeCallback();
       }
-    }
-  }])
+    };
+
+  }]);

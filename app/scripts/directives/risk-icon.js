@@ -10,10 +10,6 @@ angular.module('returnBoostApp')
         risk: '@'
       },
       link: function (scope) {
-        scope.key;
-        scope.note;
-        scope.iconClass;
-
         scope.$watch('risk', function (value) {
           var parts = value.split(' ');
 
@@ -29,5 +25,6 @@ angular.module('returnBoostApp')
           }
         });
       }
-    }
+    };
+
   }]);

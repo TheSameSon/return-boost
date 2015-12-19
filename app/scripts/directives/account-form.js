@@ -11,7 +11,7 @@ angular.module('returnBoostApp')
       },
       replace: true,
       templateUrl: 'views/directives/account-form.html',
-      link: function (scope, element, attrs) {
+      link: function (scope) {
         scope.showTermsAndConditions = function () {
           ModalService.showModal({
             controller: 'ModalCtrl',
@@ -23,25 +23,26 @@ angular.module('returnBoostApp')
               modal.element.modal();
             }, 0, false);
           });
-        }
+        };
 
         scope.register = function () {
           // do something ...
 
           scope.onRegister(false);
-        }
+        };
 
         scope.login = function () {
           // do something ...
 
           scope.onLogin(false);
-        }
+        };
 
         scope.reset = function () {
           // do something ...
 
           scope.onReset(false);
-        }
+        };
+
       }
     };
   }]);

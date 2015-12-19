@@ -9,5 +9,6 @@ angular.module('returnBoostApp')
       replace: true,
       templateUrl: 'views/directives/bootstrap-modal.html',
       transclude: true
-    }
+    };
+
   }]);

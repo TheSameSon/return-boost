@@ -8,7 +8,7 @@
  * Controller of the returnBoostApp
  */
 angular.module('returnBoostApp')
-  .controller('FindStrategiesCtrl', ['$scope', 'strategiesResolve', 'assetClassesResolve', 'dataStorage', '$filter', 'navigation', 'helper', 'ModalService', '$timeout', function ($scope, strategiesResolve, assetClassesResolve, dataStorage, $filter, navigation, helper, ModalService, $timeout) {
+  .controller('FindStrategiesCtrl', ['$scope', 'strategiesResolve', 'assetClassesResolve', 'dataStorage', '$filter', 'navigation', 'helper', function ($scope, strategiesResolve, assetClassesResolve, dataStorage, $filter, navigation, helper) {
 
     // models
     $scope.assetClasses = assetClassesResolve;
@@ -57,7 +57,7 @@ angular.module('returnBoostApp')
     // validate for next step
     $scope.next = false;
 
-    $scope.$watch(function() { return dataStorage.selectedStrategies }, function () {
+    $scope.$watch(function() { return dataStorage.selectedStrategies; }, function () {
       if (dataStorage.selectedStrategies.length > 0) {
         $scope.next = true;
 
@@ -74,5 +74,5 @@ angular.module('returnBoostApp')
       if ($scope.next) {
         navigation.goStep(1);
       }
-    }
+    };
   }]);

@@ -2,8 +2,7 @@
 
 angular.module('returnBoostApp')
   .factory('chart', ['$http', 'helper', 'COLORS', '$q', '$timeout', function($http, helper, COLORS, $q, $timeout) {
-    var chart = {},
-        strategyColors = {};
+    var chart = {};
 
     // retruns chart data obj for specific strategy
     chart.performance = function (strategies) {
@@ -29,7 +28,7 @@ angular.module('returnBoostApp')
           tooltip: {
             valueDecimals: 2
           }
-        })
+        });
 
         var performanceChart = {
           title: {
@@ -47,11 +46,11 @@ angular.module('returnBoostApp')
               enabled: false
             }
           }
-        }
+        };
 
         return performanceChart;
       });
-  }
+  };
 
   chart.risk = function (strategies) {
     var data = [],
@@ -95,7 +94,7 @@ angular.module('returnBoostApp')
     }, 1);
 
     return deferred.promise;
-  }
+  };
 
   chart.allocation = function (strategies) { // should it take selectedAssetClasses instead?
     var series = [{
@@ -136,8 +135,6 @@ angular.module('returnBoostApp')
       series: series
     };
 
-
-
     // we will return a promise to immitate an $http or to sync with any other functions could be required to build data on production
     var deferred = $q.defer();
 
@@ -146,7 +143,7 @@ angular.module('returnBoostApp')
     }, 1);
 
     return deferred.promise;
-  }
+  };
 
   return chart;
 }]);

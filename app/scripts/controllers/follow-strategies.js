@@ -50,5 +50,6 @@ angular.module('returnBoostApp')
           modal.element.modal();
         }, 100, false);
       });
-    }
+    };
+
   }]);

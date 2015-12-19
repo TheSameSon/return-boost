@@ -9,10 +9,10 @@ angular.module('helpers', [])
           if(angular.equals(arr[i], obj)){
               return i;
           }
-      };
+      }
 
       return -1;
-    }
+    };
 
     return helper;
-  }])
+  }]);
