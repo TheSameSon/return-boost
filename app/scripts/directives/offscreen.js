@@ -11,7 +11,7 @@ angular.module('returnBoostApp')
         scope.offscreenDirection = attrs.move;
         scope.isOffscreenOpen = false;
 
-        angular.element(document).mouseup(function (e) {
+        angular.element(document).on('mouseup touchend', function (e) {
           var sidebar = angular.element('.offscreen-left, .offscreen-right');
 
           if (!sidebar.is(e.target) && sidebar.has(e.target).length === 0 && scope.isOffscreenOpen) {
