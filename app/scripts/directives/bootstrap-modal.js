@@ -7,7 +7,7 @@ angular.module('returnBoostApp')
         title: '=modalTitle'
       },
       replace: true,
-      templateUrl: 'scripts/directives/views/bootstrap-modal.html',
+      templateUrl: 'views/directives/bootstrap-modal.html',
       transclude: true
     }
   }]);

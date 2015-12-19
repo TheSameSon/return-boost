@@ -10,7 +10,7 @@ angular.module('returnBoostApp')
         onReset: '&'
       },
       replace: true,
-      templateUrl: 'scripts/directives/views/account-form.html',
+      templateUrl: 'views/directives/account-form.html',
       link: function (scope, element, attrs) {
         scope.showTermsAndConditions = function () {
           ModalService.showModal({

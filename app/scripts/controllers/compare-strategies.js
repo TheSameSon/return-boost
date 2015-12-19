@@ -32,7 +32,7 @@ angular.module('returnBoostApp')
       navigation.goStep(2);
     };
 
-    $scope.back = function () {
+    $scope.goBack = function () {
       navigation.goStep(0);
     };
   }]);

@@ -4,7 +4,7 @@ angular.module('returnBoostApp')
   .directive('stepNav', ['navigation', 'dataStorage', '$interval', function (navigation, dataStorage, $interval) {
     return {
       restrict: 'E',
-      templateUrl: 'scripts/directives/views/step-nav.html',
+      templateUrl: 'views/directives/step-nav.html',
       link: function (scope, element, attrs) {
         scope.steps = navigation.getSteps();
 

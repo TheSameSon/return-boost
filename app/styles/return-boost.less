@@ -23,26 +23,56 @@ header {
 
         a {
           text-transform: uppercase;
-          color:  @header-skin-color;
+          color:  #5A747F;
           font-size: 13px;
           font-weight: bold;
+          transition: color 0.3s ease 0s;
         }
         a:hover {
-          color: @link-hover-color;
+          color: #575c72;
         }
       }
     }
   }
 }
 
+.mob-main-menu {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+
+  li {
+    margin-bottom: 5px;
+
+    a {
+      text-transform: uppercase;
+      color:  #5A747F;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s ease 0s;
+    }
+
+  }
+}
+
 footer {
   margin-top: 180px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
   .footer-inner {
     padding: 40px;
     text-align: center;
     font-size: 11px;
   }
+}
+.main-wrap {
+  padding-bottom: 300px;
+  transition: opacity 0.3s ease 0.3s;
+}
+.offscreen .main-wrap {
+  opacity: 0.4;
 }
 
 .social-links ul {
@@ -66,6 +96,8 @@ footer {
   padding: 0;
   table-layout: fixed;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 .nav-step {
   display: table-cell;
@@ -105,7 +137,7 @@ footer {
 .nav-progress {
   margin: 23px 12.5% 0 12.5%;
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   top: 0;
   width: 72%;
 }
@@ -166,6 +198,20 @@ footer {
 }
 
 @media screen and (max-width: @screen-xs-max) {
+  header {
+    height: 60px;
+  }
+  .main-wrap {
+    padding-bottom: 500px;
+  }
+  .mob-header {
+    position: fixed;
+    width: 100%;
+    background: #FFF;
+    border-bottom: 1px solid @border-color;
+    z-index: 999;
+    top: 0;
+  }
   .heading-title {
     font-size: 22px;
   }
@@ -199,10 +245,44 @@ footer {
     }
   }
 }
+
 @media screen and (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
   .no-more-tables {
     td, th {
       font-size: 11px;
     }
+  }
+}
+
+.app {
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+.sidebar-wrap {
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  background:#FFF;
+  z-index: 9999;
+}
+.offscreen .main-wrap {
+    overflow: hidden;
+    position: fixed;
+}
+
+@media screen and (max-width: @screen-sm-max) {
+  .app .offscreen-left, .app .offscreen-right {
+      width: 85%;
+  }
+  .sidebar-wrap {
+    transform: translate3d(-100%, 0, 0);
+  }
+  .move-left .sidebar-wrap, .move-right .sidebar-wrap {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    transition: transform 300ms cubic-bezier(0.7, 0, 0.3, 1);
   }
 }
