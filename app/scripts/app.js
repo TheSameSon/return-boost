@@ -36,7 +36,7 @@ angular
     dark: '#4C5064',
     'default': '#e2e2e2',
   })
-  .run(['$rootScope', 'navigation', function ($rootScope, navigation) {
+  .run(['$rootScope', 'navigation', '$window', function ($rootScope, navigation, $window) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
       var enabled = navigation.stepsEnabled;
 
@@ -44,7 +44,7 @@ angular
         event.preventDefault();
         navigation.goStep(enabled[enabled.length - 1]);
       } else {
-        angular.element(document).scrollTop();
+        $window.scrollTo(0, 0);
       }
     });
   }]);

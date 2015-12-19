@@ -1,7 +1,7 @@
 <div class="account-form">
-   <uib-accordion close-others="true" class="example1">
+   <uib-accordion close-others="true">
 
-    <uib-accordion-group heading="Register new account" class="example-test">
+    <uib-accordion-group heading="Register new account" class="panel-form">
       <form name="registerForm" class="form-horizontal bordered-group" novalidate >
         <div class="form-group" ng-class="{'has-error has-feedback': registerForm.email.$dirty && registerForm.email.$invalid}">
           <label for="register-email" class="control-label col-sm-2">Email</label>
@@ -31,7 +31,7 @@
       </form>
     </uib-accordion-group>
 
-    <uib-accordion-group heading="I already have an account">
+    <uib-accordion-group heading="I already have an account" class="panel-form">
       <form name="loginForm" class="form-horizontal bordered-group" novalidate >
         <div class="form-group" ng-class="{'has-error has-feedback': loginForm.email.$dirty && loginForm.email.$invalid}">
           <label for="login-email" class="control-label col-sm-2">Email</label>
@@ -51,7 +51,7 @@
       </form>
     </uib-accordion-group>
 
-    <uib-accordion-group heading="I forgot my password">
+    <uib-accordion-group heading="I forgot my password" class="panel-form">
       <form name="resetForm" class="form-horizontal bordered-group" novalidate >
         <div class="form-group" ng-class="{'has-error has-feedback': resetForm.email.$dirty && resetForm.email.$invalid}">
           <label for="reset-email" class="control-label col-sm-2">Email</label>

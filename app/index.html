@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="styles/theme/urban.skins.css">
 
     <link rel="stylesheet" href="styles/return-boost.css">
-    <link rel="stylesheet" href="styles/return-boost.skin.css">
     <!-- endbuild -->
   </head>
   <body ng-app="returnBoostApp" class="return-boost-app">
@@ -39,12 +38,12 @@
         <div class="app layout-small-menu" ng-controller="MainCtrl as Main">
           <div class="sidebar-wrap offscreen-left visible-xs">
             <ul class="mob-main-menu">
-              <li><a>Strategies</a></li>
-              <li><a>Methodology</a></li>
-              <li><a>About Us</a></li>
-              <li><a>FAQ</a></li>
-              <li><a>Contact</a></li>
-              <li><a>Blog</a></li>
+              <li class="data-row"><a>Strategies</a></li>
+              <li class="data-row"><a>Methodology</a></li>
+              <li class="data-row"><a>About Us</a></li>
+              <li class="data-row"><a>FAQ</a></li>
+              <li class="data-row"><a>Contact</a></li>
+              <li class="data-row"><a>Blog</a></li>
             </ul>
           </div>
           <div class="main-wrap">
@@ -84,7 +83,7 @@
                 </div>
                 <div class="col-md-3 col-sm-2"></div>
               </div>
-              <div ui-view></div>
+              <div ui-view ></div>
             </div>
             <footer class="bg-dark-light ">
               <div class="container">

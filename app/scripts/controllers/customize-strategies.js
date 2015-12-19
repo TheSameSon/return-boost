@@ -16,8 +16,7 @@ angular.module('returnBoostApp')
 
     $scope.goBack = function () {
       navigation.stepsEnabled = [0, 1, 2]; // TODO: move 'stepsEnabled' defination to followed step controller, i.e. 2
-
-      navigation.goStep(2);
+      navigation.goStep(1);
     }
 
     $scope.next = false;

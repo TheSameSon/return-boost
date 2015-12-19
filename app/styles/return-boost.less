@@ -36,14 +36,18 @@ header {
   }
 }
 
+.offscreen {
+  .sidebar-wrap {
+    border-right: 1px solid @border-color;
+  }
+}
+
 .mob-main-menu {
   list-style: none;
   margin: 0;
-  padding: 20px;
+  padding: 70px 20px 20px;
 
   li {
-    margin-bottom: 5px;
-
     a {
       text-transform: uppercase;
       color:  #5A747F;
@@ -242,6 +246,15 @@ footer {
       i {
         font-size: 20px;
       }
+    }
+  }
+  .no-more-tables td:before {
+    top: 10px;
+  }
+  .panel:not(.panel-form)  {
+    .panel-heading, .panel-body {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }
