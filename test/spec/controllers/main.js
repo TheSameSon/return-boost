@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('yoAngularApp'));
+  beforeEach(module('returnBoostApp'));
 
   var MainCtrl,
     scope;
@@ -17,7 +17,21 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+  describe('$scope.orderStrategy', function () {
+    it('should set a stOrder property as sorted by', function () {
+      scope.orderStrategy('name');
+      expect(scope.stOrder).toBe('name');
+    });
+
+    it('should toggle ASC/DESC ordering if the stOrder is the same as passed in function, and set ASC ordering if not', function () {
+      scope.orderStrategy('performance');
+      expect(scope.stReverse).toBe(false);
+
+      scope.orderStrategy('performance');
+      expect(scope.stReverse).toBe(true);
+
+      scope.orderStrategy('name');
+      expect(scope.stReverse).toBe(false);
+    });
   });
 });
