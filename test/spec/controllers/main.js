@@ -30,6 +30,9 @@ describe('Controller: MainCtrl', function () {
       scope.orderStrategy('performance');
       expect(scope.stReverse).toBe(true);
 
+      scope.orderStrategy('performance');
+      expect(scope.stReverse).toBe(false);
+
       scope.orderStrategy('name');
       expect(scope.stReverse).toBe(false);
     });
