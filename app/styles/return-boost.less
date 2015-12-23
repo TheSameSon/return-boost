@@ -299,3 +299,10 @@ footer {
     transition: transform 300ms cubic-bezier(0.7, 0, 0.3, 1);
   }
 }
+
+.field-error {
+  display: none;
+}
+.ng-dirty.ng-invalid + .field-error {
+  display: inline-block;
+}

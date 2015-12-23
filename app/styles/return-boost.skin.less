@@ -33,9 +33,16 @@
 .step-name {
   color: @brand-primary;
 }
-.bg-disabled {
+.asset-class.bg-disabled {
+  border: 1px solid @progress-bg;
+}
+.bg-disabled:not(.btn-outline) {
   background: @progress-bg;
   color: #FFF;
+}
+.bg-disabled.btn-outline {
+  background: #FFF;
+  color: darken(@progress-bg, 5%);
 }
 .table-responsive .cb-checkbox {
   margin-bottom: 0;
@@ -72,6 +79,9 @@ h2, h3, .heading-title, .heading-title label {
 risk-icon .fa {
   margin-right: 5px;
 }
+risk-icon .text-muted {
+  font-size: 11px;
+}
 
 .subscribe-panel .btn-success {
   padding-left: 40px;
@@ -101,4 +111,3 @@ risk-icon .fa {
   margin: 0px 0 -5px 0;
   padding: 0;
 }
-

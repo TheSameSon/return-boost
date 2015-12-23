@@ -27,10 +27,10 @@
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th><a ng-click="orderStrategy('risk')">RISK <i class="fa" ng-class="stReverse ? 'fa-caret-down' : 'fa-caret-up'" ng-show="stOrder === 'risk'"></i></a></th>
-                  <th><a ng-click="orderStrategy('name')">NAME <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'name'"></i></a></th>
-                  <th><a ng-click="orderStrategy('description')">STRATEGY <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'description'"></i></a></th>
-                  <th><a ng-click="orderStrategy('performance')">PERFORMANCE YTD <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'performance'"></i></a></th>
+                  <th class="col-sm-2"><a ng-click="orderStrategy('risk')">RISK <i class="fa" ng-class="stReverse ? 'fa-caret-down' : 'fa-caret-up'" ng-show="stOrder === 'risk'"></i></a></th>
+                  <th class="col-sm-2"><a ng-click="orderStrategy('name')">NAME <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'name'"></i></a></th>
+                  <th class="col-sm-2"><a ng-click="orderStrategy('description')">STRATEGY <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'description'"></i></a></th>
+                  <th><a ng-click="orderStrategy('performance')">YTD <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'performance'"></i></a></th>
                   <th><a ng-click="orderStrategy('cagr')">CAGR <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'cagr'"></i></a></th>
                   <th><a ng-click="orderStrategy('std_dev')">StdDev <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'std_dev'"></i></a></th>
                   <th><a ng-click="orderStrategy('assets')"># Assets <i class="fa" ng-class="stReverse ? 'fa-caret-up' : 'fa-caret-down'" ng-show="stOrder === 'assets'"></i></a></th>

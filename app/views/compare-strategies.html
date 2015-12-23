@@ -25,7 +25,7 @@
       <div class="panel-body">
         <div class="asset-classes-wrap static clearfix mb20">
           <div class="col-lg-3" ng-repeat="assetClass in assetClasses track by assetClass.id">
-            <span class="asset-class text-center btn-lg" ng-class="{'bg-disabled': arrayIndexOf(selectedAssetClasses, assetClass) < 0, 'bg-primary': arrayIndexOf(selectedAssetClasses, assetClass) > -1}" disabled ng-bind="assetClass.name"></span>
+            <span class="asset-class text-center bg-disabled btn-lg" ng-class="{'btn-outline': arrayIndexOf(selectedAssetClasses, assetClass) < 0, 'bg-primary': arrayIndexOf(selectedAssetClasses, assetClass) > -1}" disabled ng-bind="assetClass.name"></span>
           </div>
         </div>
         <div class="col-lg-12 box-tab">
