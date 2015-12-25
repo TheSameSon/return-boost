@@ -10,8 +10,22 @@ header {
   height: 100px;
   margin-bottom: 50px;
 
+  .logo {
+    margin-left: 22px;
+
+    a {
+      display: inline-block;
+      width: 100px;
+      height: 74px;
+      background: url(../images/logo-black.png) center center no-repeat;
+      background-size: auto 100%;
+      margin: 14px auto 0;
+      opacity: 0.8;
+    }
+  }
+
   .main-menu {
-    margin: 40px 0 0;
+    margin: 55px 15px 0 0;
 
     ul {
       padding: 0;
@@ -65,8 +79,21 @@ footer {
   bottom: 0;
   width: 100%;
 
+  .logo {
+    text-align: center;
+
+    a {
+      display: inline-block;
+      background: url(../images/logo-white.png);
+      background-size: auto 100%;
+      width: 100px;
+      height: 70px;
+      margin-top: 12px;
+    }
+  }
+
   .footer-inner {
-    padding: 40px;
+    padding: 20px 40px 40px;
     text-align: center;
     font-size: 11px;
   }
@@ -204,7 +231,36 @@ footer {
 @media screen and (max-width: @screen-xs-max) {
   header {
     height: 60px;
+
+    .logo {
+      margin: 0;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+
+      a {
+        margin: 0;
+        height: 50px;
+        width: 80px;
+      }
+    }
   }
+
+  .offscreen.move-left {
+    .logo {
+      text-align: right;
+
+      a {
+        background-image: url(../images/logo-mini-black.png);
+        width: 15%;
+        height: 30px;
+        margin-top: 9px;
+      }
+    }
+  }
+
   .main-wrap {
     padding-bottom: 500px;
   }
@@ -246,6 +302,10 @@ footer {
       i {
         font-size: 20px;
       }
+    }
+
+    .footer-inner {
+      padding-top: 40px;
     }
   }
   .no-more-tables td:before {
